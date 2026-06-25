@@ -82,11 +82,11 @@ Build and deploy a full-stack CRUD application using Spring Boot backend
 ## Backend Integration
 This frontend communicates with a Spring Boot REST API.
 Example (Frontend)
-``` Vue
+``` javascript
 axios.get("http://localhost:8080/api/projects")
 ```
 
-``` SpringBoot
+``` java
 @GetMapping("/api/projects")
 public List<Project> getProjects() {
     return projectService.findAll();
