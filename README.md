@@ -1,12 +1,12 @@
 # Vue3 Project Tracker
 
-Simple CRUD application built with Vue 3.
+A simple CRUD application built with Vue 3 to refresh and validate modern Vue development skills.
 
 ## Purpose
 
 This project was created to refresh and transition from Vue 2 to Vue 3.
 
-Since I have previous experience developing with Vue 2, the focus is not on learning Vue from scratch, but on understanding the key changes in Vue 3, including Composition API, Pinia, and modern project structure.
+Since I have previous experience developing with Vue 2, the focus is not on learning Vue from scratch, but on understanding the key changes in Vue 3, including the Composition API, Pinia, and modern project structure.
 
 ## Init
 
@@ -66,3 +66,50 @@ npm run dev
 ## Deployment
 
 This project can be deployed using Firebase Hosting.
+
+## Next Steps
+
+The following features will be implemented as part of the Vue 3 migration and hands-on practice.
+
+### Component Architecture
+
+* Split the application into reusable components
+* Parent ↔ Child communication
+* Props
+* Custom Events (emit)
+
+### State Management
+
+* Manage global state with Pinia
+* Compare local state (`ref`) and store-based state
+
+### Backend Integration
+
+* Connect Vue 3 frontend with Spring Boot REST API
+* Axios HTTP communication
+* Oracle Database CRUD operations
+
+### End-to-End Validation
+
+* Deploy frontend using Firebase Hosting
+* Verify complete CRUD workflow
+* Connect frontend, backend, and database together
+
+### Target Architecture
+
+```text
+Vue 3
+ ├─ Components
+ ├─ Pinia
+ ├─ Axios
+ │
+ ▼
+Spring Boot REST API
+ │
+ ▼
+Oracle Database
+```
+
+## Notes
+
+This repository focuses on practical Vue 3 development rather than theoretical study, with the goal of building a production-style CRUD application integrated with a Spring Boot backend.
