@@ -1,9 +1,10 @@
-# Vue3 Project Tracker
+# 🚀 Vue 3 Project Tracker
 
 A simple CRUD application built with Vue 3 to refresh and validate modern Vue development skills.
 
-## Purpose
+---
 
+## 🎯 Purpose
 This project was created to refresh and transition from Vue 2 to Vue 3.
 
 Since I have previous experience developing with Vue 2, the focus is not on learning Vue from scratch, but on understanding the key changes in Vue 3, including the Composition API, Pinia, and modern project structure.
@@ -12,7 +13,7 @@ This project is also designed to work with a Spring Boot backend through REST AP
 
 ---
 
-## Init
+## 💻 Init & Installation
 
 ```bash
 npm create vue@latest .
@@ -36,7 +37,7 @@ npm install
 npm run dev
 ```
 
-## Tech Stack
+🛠️ Tech Stack
 - Vue 3
 - Vue Router
 - Pinia
@@ -45,7 +46,7 @@ npm run dev
 - Oracle Database
 - Firebase Hosting
 
-## Features
+📌 Features
 - Project List
 - Create Project
 - Update Project
@@ -53,16 +54,15 @@ npm run dev
 - Project Status Management
 - Backend API Integration
 
-## Repository Structure
-
+📂 Repository Structure
 This project is divided into two separate repositories.
 
 Backend Repository (Spring Boot API)
-REST API server
-Oracle DB integration
-SQL DDL / DML included
-CORS configured for frontend communication
-Business logic layer (Controller / Service / Repository)
+- REST API server
+- Oracle DB integration
+- SQL DDL / DML included
+- CORS configured for frontend communication
+- Business logic layer (Controller / Service / Repository)
 
 GitHub: https://github.com/your-id/backend-repo(생성 예정)
 
@@ -72,14 +72,14 @@ npm install
 npm run dev
 ```
 
-## Learning Goals
-Refresh Vue development experience after working primarily with React and backend projects
-Learn Vue 3 Composition API
-Understand state management with Pinia
-Compare Vue 2 and Vue 3 development patterns
-Build and deploy a full-stack CRUD application using Spring Boot backend
+🎯 Learning Goals
+- Refresh Vue development experience after working primarily with React and backend projects
+- Learn Vue 3 Composition API
+- Understand state management with Pinia
+- Compare Vue 2 and Vue 3 development patterns
+- Build and deploy a full-stack CRUD application using Spring Boot backend
 
-## Backend Integration
+🔌 Backend Integration Example
 This frontend communicates with a Spring Boot REST API.
 Example (Frontend)
 ``` javascript
@@ -93,10 +93,10 @@ public List<Project> getProjects() {
 }
 ```
 
-## Deployment
-Frontend: Firebase Hosting
-Backend: Spring Boot (Local)
-Database: Oracle DB
+🚀 Deployment Strategy
+- Frontend: Firebase Hosting
+- Backend: Spring Boot (Local)
+- Database: Oracle DB
 
 ## End-to-End Flow
 Vue 3 → Axios → Spring Boot → Oracle DB → JSON Response → Vue Update
