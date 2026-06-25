@@ -79,4 +79,28 @@ Understand state management with Pinia
 Compare Vue 2 and Vue 3 development patterns
 Build and deploy a full-stack CRUD application using Spring Boot backend
 
+## Backend Integration
+This frontend communicates with a Spring Boot REST API.
+Example (Frontend)
+``` Vue
+axios.get("http://localhost:8080/api/projects")
+```
 
+``` SpringBoot
+@GetMapping("/api/projects")
+public List<Project> getProjects() {
+    return projectService.findAll();
+}
+```
+
+## Deployment
+Frontend: Firebase Hosting
+Backend: Spring Boot (Local)
+Database: Oracle DB
+
+## End-to-End Flow
+Vue 3 → Axios → Spring Boot → Oracle DB → JSON Response → Vue Update
+
+## Notes
+This project focuses on practical full-stack development rather than theoretical Vue learning.
+The goal is to simulate a production-style architecture with separated frontend and backend repositories connected via REST API.
