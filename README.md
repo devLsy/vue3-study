@@ -18,10 +18,6 @@ npm install
 npm run dev
 ```
 
-둘 다 선택 안하고 엔터 <-- 이거 주석하는 방법
-```
-``` 안에서
-
 ## Tech Stack
 
 - Vue 3
