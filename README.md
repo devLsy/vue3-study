@@ -14,6 +14,7 @@ Router(SPA development)
 Select experimental features to include in your project:
 (둘 다 선택 안함)
 Skip all example code and start with a blank Vue project?
+yes
 npm install
 npm run dev
 ```
