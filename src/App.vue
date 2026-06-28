@@ -7,13 +7,10 @@ const editedId = ref(null)
 const projectName = ref('')
 const projects = ref([])
 
-const increase = () => {
-  count.value++
-}
+const increase = () => count.value++
 
-const inputName = (e) => {
-  name.value = e.target.value
-}
+
+const inputName = (e) => name.value = e.target.value
 
 const addProject = () => {
   if (projectName.value.trim() === '') {
