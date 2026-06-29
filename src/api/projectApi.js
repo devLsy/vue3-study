@@ -11,9 +11,7 @@ export const getProjects = () => api.get("/projects")
 export const createProject = (data) => api.post("/projects", data)
 
 // UPDATE
-export const updateProject = (id, data) =>
-  api.put(`/projects/${id}`, data)
+export const updateProject = (id, data) => api.put(`/projects/${id}`, data)
 
 // DELETE
-export const deleteProject = (id) =>
-  api.delete(`/projects/${id}`)
+export const deleteProject = (id) => api.delete(`/projects/${id}`)
