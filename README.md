@@ -1,5 +1,10 @@
 # 🚀 Vue 3 Project Tracker
 
+<img 
+  src="https://github.com/user-attachments/assets/1bef14c0-e993-46ec-a804-3d9ea24bd809"
+  alt="Vue 3 Project Tracker Screenshot"
+/>
+
 A simple CRUD application built with Vue 3 to refresh and validate modern Vue development skills.
 
 ---
@@ -64,7 +69,7 @@ Backend Repository (Spring Boot API)
 - CORS configured for frontend communication
 - Business logic layer (Controller / Service / Repository)
 
-GitHub: https://github.com/your-id/backend-repo(생성 예정)
+GitHub: https://github.com/devLsy/project-api
 
 ## Run
 ```
