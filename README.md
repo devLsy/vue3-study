@@ -1,6 +1,6 @@
 # 🚀 Vue 3 Project Tracker
 
-<img src="https://github.com/user-attachments/assets/bf4186fd-7498-4ce3-bf09-1e4e9d90fd6a" alt="Vue 3 Project Tracker Screenshot"/>
+
 
 A simple CRUD application built with Vue 3 to refresh and validate modern Vue development skills.
 
