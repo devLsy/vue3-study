@@ -2,6 +2,7 @@
 
 <img alt="Image" src="https://github.com/user-attachments/assets/f459b420-b51c-4504-82e0-d5da61d413d8" />
 
+
 A simple CRUD application built with Vue 3 to refresh and validate modern Vue development skills.
 
 ---
