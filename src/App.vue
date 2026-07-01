@@ -31,6 +31,13 @@ const loadProjects = async () => {
   totalElements.value = data.totalElements
 } 
 
+// 검색 초기화
+const resetSearch = () => {
+  keyword.value = ''
+  page.value = 0
+  loadProjects()
+}
+
 onMounted(loadProjects)
 
 // 페이지 이동
@@ -118,8 +125,6 @@ const updateProject = async () => {
       {{ editedId === null ? '추가' : '저장' }}
     </button>
   </div>
-  
-  <br />
 
   <!-- 검색 영역 -->
   <div class="search-area">
@@ -131,6 +136,15 @@ const updateProject = async () => {
     />
     &nbsp;
     <button @click="page = 0; loadProjects()" class="btn-search">조회</button>
+
+    &nbsp;
+
+    <button
+      @click="resetSearch"
+      class="btn-reset">
+      초기화
+    </button>
+
   </div>
 
   <!-- 추가 -->
@@ -148,7 +162,7 @@ const updateProject = async () => {
     </thead>
 
     <tbody>
-      <tr v-for="(project, index) in projects" :key="project.id" :class="{ editing: editedId === project.id }">
+      <tr v-if="projects.length > 0" v-for="(project, index) in projects" :key="project.id" :class="{ editing: editedId === project.id }">
         <td>{{ index + 1 }}</td>
         <td class="project-name" @click="startEdit(project)">
           {{ project.name }}
@@ -157,6 +171,12 @@ const updateProject = async () => {
           <button @click="deleteProject(project.id)" class="btn-delete">
             삭제
           </button>
+        </td>
+      </tr>
+
+      <tr v-else>
+        <td colspan="3" class="empty-message">
+          검색 결과가 없습니다.
         </td>
       </tr>
     </tbody>
@@ -236,19 +256,32 @@ button:hover {
 }
 
 .btn-add {
-  background-color: #2563eb;   /* 파랑 */
+  background-color: #2563eb;   
 }
 
 .btn-edit {
-  background-color: #f59e0b;   /* 주황 */
+  background-color: #f59e0b;   
 }
 
 .btn-delete {
-  background-color: #dc2626;   /* 빨강 */
+  background-color: #dc2626;   
 }
 
 .btn-search {
-  background-color: #64748b; /* 회색 */
+  background-color: #16a34a;
+}
+
+.btn-search:hover {
+  background-color: #15803d;
+}
+
+.btn-reset {
+  background-color: #94a3b8;
+  color: white;
+}
+
+.btn-reset:hover {
+  background-color: #64748b;
 }
 
 input {
@@ -345,6 +378,13 @@ td:last-child {
   color: #475569;
   font-size: 14px;
   font-weight: 600;
+}
+
+.empty-message {
+  text-align: center;
+  color: #64748b;
+  padding: 30px;
+  font-style: italic;
 }
 
 </style>
