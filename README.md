@@ -106,13 +106,16 @@ Vue 3 → Axios → Spring Boot → Oracle DB → JSON Response → Vue Update
 
 ## 🚧 TODO
 
-- Sorting (Latest / Oldest / Name)
-- Created Date
-- Loading Indicator
-- Input Validation
-- Page Size Selection
-- Toast Notification
-- Responsive UI Improvement
+## 🚧 TODO
+
+- [ ] Sorting (Latest / Oldest / Name)
+- [ ] Created Date
+- [ ] Loading Indicator
+- [x] Input Validation
+- [ ] Page Size Selection
+- [ ] Toast Notification
+- [ ] Responsive UI Improvement
+- [x] Submit with Enter Key
 
 ## Notes
 This project focuses on practical full-stack development rather than theoretical Vue learning.
