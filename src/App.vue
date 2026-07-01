@@ -33,6 +33,12 @@ const loadProjects = async () => {
 
 onMounted(loadProjects)
 
+// 페이지 이동
+const movePage = (pageNumber) => {
+  page.value = pageNumber
+  loadProjects()
+}
+
 // 다음 페이지
 const nextPage = () => {
   if (page.value + 1 < totalPages.value) {
@@ -157,9 +163,14 @@ const updateProject = async () => {
       Prev
     </button>
 
-    <span class="page-info">
-      {{ page + 1 }} / {{ totalPages }}
-    </span>
+    <button
+      v-for="n in totalPages"
+      :key="n"
+      @click="movePage(n - 1)"
+      :class="{ active: page === n - 1 }"
+    >
+      {{ n }}
+    </button>
 
     <button @click="nextPage" :disabled="page + 1 >= totalPages">
       Next
@@ -288,21 +299,37 @@ td:last-child {
   padding: 6px 12px;
   border: none;
   border-radius: 6px;
-  background-color: #2563eb;
-  color: white;
+  background-color: #e2e8f0;
+  color: #334155;
   cursor: pointer;
   transition: 0.2s;
 }
 
+/* 마우스 오버 */
+.pagination button:hover:not(:disabled) {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* 현재 페이지 */
+.pagination button.active {
+  background-color: #2563eb;
+  color: white;
+  font-weight: bold;
+}
+  
+/* Prev, Next 비활성 */
 .pagination button:disabled {
-  background-color: #cbd5e1;
+  background-color: #f1f5f9;
+  color: #94a3b8;
   cursor: not-allowed;
-  opacity: 0.6;
+  opacity: 1; /* 기본 opacity 0.6 대신 깔끔하게 */
 }
 
 .page-info {
   font-weight: bold;
 }
+
 
 .form-area,
 .search-area {
