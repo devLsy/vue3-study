@@ -105,9 +105,6 @@ public List<Project> getProjects() {
 Vue 3 → Axios → Spring Boot → Oracle DB → JSON Response → Vue Update
 
 ## 🚧 TODO
-
-## 🚧 TODO
-
 - [ ] Sorting (Latest / Oldest / Name)
 - [ ] Created Date
 - [ ] Loading Indicator
