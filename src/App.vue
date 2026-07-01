@@ -66,10 +66,7 @@ const prevPage = () => {
  * 프로젝트 추가
  */
 const addProject = async () => {
-  if (projectName.value.trim() === '') {
-    alert('프로젝트명을 입력해주세요.')
-    return
-  }
+  if (!validateProject()) return
 
   if (!confirm('정말 추가하시겠습니까?')) return
 
@@ -101,6 +98,8 @@ const startEdit = (project) => {
  * 프로젝트 수정
  */
 const updateProject = async () => {
+  if (!validateProject()) return
+
   if (!confirm('정말 수정하시겠습니까?')) return
   await updateProjectApi(editedId.value, {
     name: projectName.value 
@@ -112,6 +111,25 @@ const updateProject = async () => {
   projectName.value = ''
   input.focus()
 }
+
+ /**
+  * 입력값 검증
+  * @returns {boolean}
+  */
+const validateProject = () => {
+  if (projectName.value.trim() === '') {
+    alert('프로젝트명을 입력해주세요.')
+    return false
+  }
+
+  if (projectName.value.length > 100) {
+    alert('프로젝트명은 100자 이하만 입력 가능합니다.')
+    return false
+  }
+  
+  return true
+}
+
 </script>
 
 <template>
