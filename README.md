@@ -104,6 +104,16 @@ public List<Project> getProjects() {
 ## End-to-End Flow
 Vue 3 → Axios → Spring Boot → Oracle DB → JSON Response → Vue Update
 
+## 🚧 TODO
+
+- Sorting (Latest / Oldest / Name)
+- Created Date
+- Loading Indicator
+- Input Validation
+- Page Size Selection
+- Toast Notification
+- Responsive UI Improvement
+
 ## Notes
 This project focuses on practical full-stack development rather than theoretical Vue learning.
 The goal is to simulate a production-style architecture with separated frontend and backend repositories connected via REST API.
