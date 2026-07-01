@@ -133,6 +133,11 @@ const updateProject = async () => {
     <button @click="page = 0; loadProjects()" class="btn-search">조회</button>
   </div>
 
+  <!-- 추가 -->
+  <div class="total-count">
+    총 {{ totalElements }}건
+  </div>
+
   <table>
     <thead>
       <tr>
@@ -317,7 +322,7 @@ td:last-child {
   color: white;
   font-weight: bold;
 }
-  
+
 /* Prev, Next 비활성 */
 .pagination button:disabled {
   background-color: #f1f5f9;
@@ -330,9 +335,16 @@ td:last-child {
   font-weight: bold;
 }
 
-
 .form-area,
 .search-area {
   margin-bottom: 12px;
 }
+
+.total-count {
+  margin: 12px 0;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 600;
+}
+
 </style>
