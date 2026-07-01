@@ -5,7 +5,15 @@ const api = axios.create({
 })
 
 // READ
-export const getProjects = () => api.get("/projects")
+export const getProjects = (page, size, keyword) => {
+  return api.get("/projects", {
+    params: {
+      page,
+      size,
+      keyword
+    }
+  })
+}
 
 // CREATE
 export const createProject = (data) => api.post("/projects", data)
@@ -15,3 +23,4 @@ export const updateProject = (id, data) => api.put(`/projects/${id}`, data)
 
 // DELETE
 export const deleteProject = (id) => api.delete(`/projects/${id}`)
+

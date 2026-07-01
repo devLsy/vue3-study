@@ -13,16 +13,41 @@ const name = ref('')
 const editedId = ref(null)
 const projectName = ref('')
 const projects = ref([])
+const keyword = ref('')
+
+// 페이지네이션 관련
+const page = ref(0)
+const size = ref(10)
+const totalPages = ref(0)
+const totalElements = ref(0)
 
 /**
  * 프로젝트 목록 조회
  */
 const loadProjects = async () => {
-  const { data } = await getProjects()
-  projects.value = data
-}
+  const { data } = await getProjects(page.value, size.value, keyword.value)
+  projects.value = data.content
+  totalPages.value = data.totalPages
+  totalElements.value = data.totalElements
+} 
 
 onMounted(loadProjects)
+
+// 다음 페이지
+const nextPage = () => {
+  if (page.value + 1 < totalPages.value) {
+    page.value++
+    loadProjects()
+  }
+}
+
+// 이전 페이지
+const prevPage = () => {
+  if (page.value > 0) {
+    page.value--
+    loadProjects()
+  }
+}
 
 /**
  * 프로젝트 추가
@@ -78,12 +103,29 @@ const updateProject = async () => {
 
 <template>
   <h1>Vue3 Project Tracker</h1>
-  <input type="text" v-model="projectName" placeholder="프로젝트명 입력" /> &nbsp;
-  <button 
-    :class="editedId === null ? 'btn-add' : 'btn-edit'"
-    @click="editedId === null ? addProject() : updateProject()">
-    {{ editedId === null ? '추가' : '저장' }}
-  </button>
+  <!-- 등록/수정 영역 -->
+  <div class="form-area">
+    <input type="text" v-model="projectName" placeholder="프로젝트명 입력" /> &nbsp;
+    <button 
+      :class="editedId === null ? 'btn-add' : 'btn-edit'"
+      @click="editedId === null ? addProject() : updateProject()">
+      {{ editedId === null ? '추가' : '저장' }}
+    </button>
+  </div>
+  
+  <br />
+
+  <!-- 검색 영역 -->
+  <div class="search-area">
+    <input
+      type="text"
+      v-model="keyword"
+      placeholder="프로젝트명 검색"
+      @keyup.enter="page = 0; loadProjects()"
+    />
+    &nbsp;
+    <button @click="page = 0; loadProjects()" class="btn-search">조회</button>
+  </div>
 
   <table>
     <thead>
@@ -108,6 +150,21 @@ const updateProject = async () => {
       </tr>
     </tbody>
   </table>
+
+  <!-- ✔ 페이지네이션 영역 -->
+  <div class="pagination">
+    <button @click="prevPage" :disabled="page === 0">
+      Prev
+    </button>
+
+    <span class="page-info">
+      {{ page + 1 }} / {{ totalPages }}
+    </span>
+
+    <button @click="nextPage" :disabled="page + 1 >= totalPages">
+      Next
+    </button>
+  </div>
 
 </template>
 
@@ -174,6 +231,10 @@ button:hover {
   background-color: #dc2626;   /* 빨강 */
 }
 
+.btn-search {
+  background-color: #64748b; /* 회색 */
+}
+
 input {
   padding: 10px;
   border: 1px solid #cbd5e1;
@@ -213,5 +274,38 @@ td:last-child {
 .project-name:hover {
   color: #2563eb;
   text-decoration: underline;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;  
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2563eb;
+  color: white;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.pagination button:disabled {
+  background-color: #cbd5e1;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.page-info {
+  font-weight: bold;
+}
+
+.form-area,
+.search-area {
+  margin-bottom: 12px;
 }
 </style>
