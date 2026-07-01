@@ -118,7 +118,12 @@ const updateProject = async () => {
   <h1>Vue3 Project Tracker</h1>
   <!-- 등록/수정 영역 -->
   <div class="form-area">
-    <input type="text" v-model="projectName" placeholder="프로젝트명 입력" /> &nbsp;
+    <input 
+      type="text" 
+      v-model="projectName" 
+      placeholder="프로젝트명 입력" 
+      @keyup.enter="editedId === null ? addProject() : updateProject()" 
+    /> &nbsp;
     <button 
       :class="editedId === null ? 'btn-add' : 'btn-edit'"
       @click="editedId === null ? addProject() : updateProject()">
